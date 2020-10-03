@@ -55,7 +55,7 @@ const layoutInfo = {
 
 ```
 
-This code has no dependencies.
+This code has no dependencies. It's just Vanilla Javascript, CSS, and HTML.
 
 
 (c) 2020 [Olivier Giulieri](https://evoluteur.github.io/), [MIT license](http://github.com/evoluteur/isomorphic-table-cards/blob/master/LICENSE).
