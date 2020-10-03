@@ -3,10 +3,10 @@
 Isomorphic Table and Cards views with animated transitions.
 
 
-Check out [the demo](https://evoluteur.github.io/isomorphic-table-cards/).
+Check out [the demo](https://evoluteur.github.io/isomorphic-table-cards/index.html).
 
 
-[![screenshot](https://raw.github.com/evoluteur/isomorphic-table-cards/master/screenshot.gif)](https://evoluteur.github.io/isomorphic-table-cards/)
+[![screenshot](https://raw.github.com/evoluteur/isomorphic-table-cards/master/screenshot.gif)](https://evoluteur.github.io/isomorphic-table-cards/index.html)
 
 
 
