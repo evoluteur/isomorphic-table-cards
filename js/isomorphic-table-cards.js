@@ -1,4 +1,4 @@
-// https://github.com/evoluteur/d3-table-cards
+// https://github.com/evoluteur/isomorphic-table-cards
 // (c) 2020 Olivier Giulieri
 
 const layoutInfo = {

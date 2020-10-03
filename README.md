@@ -1,11 +1,8 @@
-# D3-Table-Cards &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/d3-table-cards)](https://github.com/evoluteur/d3-table-cards/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/d3-table-cards)](https://www.npmjs.com/package/d3-table-cards) 
+# Isomorphic-Table-Cards
 
+Isomorphic Table and Cards views with animated transitions.
 
-Example of using D3.js for transformations between table view and cards view, and transitions while sorting elements or resizing the browser. 
-
-Check out [the demo](https://evoluteur.github.io/d3-table-cards/).
-
-![screenshot](https://raw.github.com/evoluteur/d3-table-cards/master/screenshot.gif)
+![screenshot](https://raw.github.com/evoluteur/isomorphic-table-cards/master/screenshot.gif)
 
 
 This code uses HTML (with absolute positioning) rather than SVG, and has no dependencies beside D3.js.
@@ -58,4 +55,4 @@ const layoutInfo = {
 ```
 
 
-(c) 2020 [Olivier Giulieri](https://evoluteur.github.io/), [MIT license](http://github.com/evoluteur/d3-table-cards/blob/master/LICENSE).
+(c) 2020 [Olivier Giulieri](https://evoluteur.github.io/), [MIT license](http://github.com/evoluteur/isomorphic-table-cards/blob/master/LICENSE).
