@@ -1,0 +1,42 @@
+/* https://github.com/evoluteur/d3-table-cards */
+
+.holder{
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.header{
+	position: absolute;
+	padding: 10px;
+	background-color: #eee;
+	border: solid 2px silver;
+	left: 0px; 
+	top: 0px; 
+    width: 574px;
+    height: 19px;
+	opacity: 0;
+}
+.header > div{
+	float: left;
+	width: 194px;
+	line-height: 18px;
+}
+.header.sortable > div{
+	cursor: pointer;
+}
+.item {
+	position: absolute;
+	border: solid 1px silver;
+	background-color: white;
+	overflow: hidden;
+}
+.item > div{
+	position: absolute;
+	line-height: 18px;
+}
+.item > div:first-child{
+	font-weight: bold;
+}
+.c1{
+	font-weight: bold;
+}
