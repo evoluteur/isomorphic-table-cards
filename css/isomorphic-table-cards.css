@@ -10,11 +10,11 @@
 	padding: 10px;
 	background-color: #eee;
 	border: solid 2px silver;
-	left: 0px; 
+	left: -700px; 
 	top: 0px; 
     width: 574px;
     height: 19px;
-	opacity: 0;
+	transition: left 0.6s;
 }
 .header > div{
 	float: left;
@@ -29,8 +29,10 @@
 	border: solid 1px silver;
 	background-color: white;
 	overflow: hidden;
+	transition: .6s;
 }
 .item > div{
+	transition: .6s;
 	position: absolute;
 	line-height: 18px;
 }

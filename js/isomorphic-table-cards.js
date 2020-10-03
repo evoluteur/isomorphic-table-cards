@@ -4,14 +4,13 @@
 const layoutInfo = {
 	table: {
 		// ---- row position & size
-		top: (d, i) => 40+i*31+'px',
-		left: '0px',
+		top: i => 40+i*31+'px',
+		left: i =>'0px',
 		height: '30px',
 		width: '594px',
 		// ---- row border-radius
 		radius: 0,
 		// ---- table header
-		headerOpacity: 1,
 		headerLeft: '0px',
 		// ---- column 1
 		c1Top: '5px',
@@ -23,14 +22,13 @@ const layoutInfo = {
 	},
 	cards: {
 		// ---- card position & size
-		top: (d, i) => Math.floor(i/cardsPerRow)*94+'px',
-		left: (d, i) => (i%cardsPerRow)*210+'px',
+		top: i => Math.floor(i/cardsPerRow)*94+'px',
+		left: i => (i%cardsPerRow)*210+'px',
 		height: '84px',
 		width: '200px',
 		// ---- card border-radius
 		radius: '4px',
 		// ---- table header (hidden)
-		headerOpacity: 0,
 		headerLeft: '-650px',
 		// ---- line 1
 		c1Top: '10px',
@@ -55,16 +53,19 @@ function getLayoutInfo(style){
 
 function render(){
 	const l = getLayoutInfo(curStyle);
-	holder = d3.select(selector);
-	const sel = holder.selectAll('.item')
-		.data(data, d => d.name)
-		.enter()
-		.append('div').attr('class', d => 'item chakra'+d.chakra);
+	holder = document.querySelector(selector);
+	var node = document.createElement("div");
+	node.innerHTML = data.map(d => `<div class="item chakra${d.chakra}" id="${d.name}">
+			<div class="c1" style="top:${l.c1Top}">
+				${d.name}
+			</div>
+			<div class="c2" style="top:${l.c2Top}">
+				${d.spirit}
+			</div>
+		</div>
+	`).join('')
 
-	sel.insert('div').attr('class', 'c1').style('top', l.c1Top)
-		.html(d => d.name);
-	sel.insert('div').attr('class', 'c2').style('top', l.c2Top)
-		.html(d => d.spirit);
+	holder.appendChild(node)
 
 	layout(true, false);
 }
@@ -98,36 +99,32 @@ function sort(key){
 }
 
 function layout(skipAnim, skipChildren){
-	const l = getLayoutInfo(curStyle),
-		t = d3.transition().duration(skipAnim ? 0 : animTime);
+	const l = getLayoutInfo(curStyle)
 
-	holder.selectAll('.item')
-		.data(data, d => d.name)
-		.transition(t)
-		.style('left', l.left)
-		.style('top', l.top)
-		.style('height', l.height)
-		.style('width', l.width)
-		.style('border-radius', l.radius);
+	const id2idx ={}
+	data.forEach((d, idx) => id2idx[d.name] = idx)
+
+ 
+	holder.querySelectorAll('.item')
+		.forEach(e => {
+			const idx = id2idx[e.id]
+			e.style = 'left:'+l.left(idx)+';top:'+l.top(idx)+';height:'+l.height+';width:'+l.width+';border-radius:'+l.radius
+		})
 
 	if(!skipChildren){
-		holder.selectAll('.c1').transition(t)
-			.style('top', l.c1Top)
-			.style('left', l.c1Left)
-			.style('font-size', l.c1FontSize);
-		holder.selectAll('.c2').transition(t)
-			.style('top', l.c2Top)
-			.style('left', l.c2Left);
+		holder.querySelectorAll('.c1')
+			.forEach(e => e.style = 'top:'+l.c1Top+';left:'+l.c1Left+';font-size:'+l.c1FontSize)
+			
+		holder.querySelectorAll('.c2')
+			.forEach(e => e.style = 'top:'+l.c2Top+';left:'+l.c2Left)
 
-		holder.select('.header').transition(t)
-			.style('opacity', l.headerOpacity)
-			.style('left', l.headerLeft);
+		holder.querySelector('.header').style = 'left:'+l.headerLeft;
 
 		const totalHeight = 20+(curStyle==='cards' ?
 				Math.ceil(data.length/cardsPerRow)*94
 				 : 40+data.length*31);
 
-		holder.transition(t)
-			.style('height', totalHeight+'px');
+		holder.style.height = totalHeight+'px'
 	}
+	
 }

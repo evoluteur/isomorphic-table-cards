@@ -2,10 +2,13 @@
 
 Isomorphic Table and Cards views with animated transitions.
 
-![screenshot](https://raw.github.com/evoluteur/isomorphic-table-cards/master/screenshot.gif)
+
+Check out [the demo](https://evoluteur.github.io/isomorphic-table-cards/).
 
 
-This code uses HTML (with absolute positioning) rather than SVG, and has no dependencies beside D3.js.
+[![screenshot](https://raw.github.com/evoluteur/isomorphic-table-cards/master/screenshot.gif)](https://evoluteur.github.io/isomorphic-table-cards/)
+
+
 
 The table and cards layouts are configurable.
 
@@ -14,14 +17,13 @@ The table and cards layouts are configurable.
 const layoutInfo = {
 	table: {
 		// row position & size
-		top: (d, i) => 40+i*31+'px',
-		left: '0px',
+		top: i => 40+i*31+'px',
+		left: i => '0px',
 		height: '30px',
 		width: '594px',
 		// row border-radius
 		radius: 0,
 		// table header
-		headerOpacity: 1,
 		headerLeft: '0px',
 		// column 1
 		c1Top: '5px',
@@ -33,14 +35,13 @@ const layoutInfo = {
 	},
 	cards: {
 		// card position & size
-		top: (d, i) => Math.floor(i/cardsPerRow)*94+'px',
-		left: (d, i) => (i%cardsPerRow)*210+'px',
+		top: i => Math.floor(i/cardsPerRow)*94+'px',
+		left: i => (i%cardsPerRow)*210+'px',
 		height: '84px',
 		width: '200px',
 		// card border-radius
 		radius: '4px',
 		// table header (hidden)
-		headerOpacity: 0,
 		headerLeft: '-650px',
 		// line 1
 		c1Top: '10px',
@@ -53,6 +54,8 @@ const layoutInfo = {
 };
 
 ```
+
+This code has no dependencies.
 
 
 (c) 2020 [Olivier Giulieri](https://evoluteur.github.io/), [MIT license](http://github.com/evoluteur/isomorphic-table-cards/blob/master/LICENSE).
