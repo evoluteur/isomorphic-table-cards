@@ -2,7 +2,7 @@
 // I'm allowed to use the following data by the author. 
 // This data is not public domain!
 
-var data=[
+var data = [
   {
     "name": "Amazonite",
     "chakra": 4,

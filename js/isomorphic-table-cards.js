@@ -41,7 +41,6 @@ const layoutInfo = {
 };
 
 const selector = '.holder';
-const animTime = 600;
 let curStyle = 'cards'; // "table" or "cards"
 let holder;
 let cardsPerRow = 3;
@@ -103,22 +102,25 @@ function layout(skipAnim, skipChildren){
 
 	const id2idx ={}
 	data.forEach((d, idx) => id2idx[d.name] = idx)
-
  
+	const itemCSS = ';height:'+l.height+';width:'+l.width+';border-radius:'+l.radius
 	holder.querySelectorAll('.item')
 		.forEach(e => {
 			const idx = id2idx[e.id]
-			e.style = 'left:'+l.left(idx)+';top:'+l.top(idx)+';height:'+l.height+';width:'+l.width+';border-radius:'+l.radius
+			e.style = 'left:'+l.left(idx)+';top:'+l.top(idx)+itemCSS
 		})
 
 	if(!skipChildren){
-		holder.querySelectorAll('.c1')
-			.forEach(e => e.style = 'top:'+l.c1Top+';left:'+l.c1Left+';font-size:'+l.c1FontSize)
-			
-		holder.querySelectorAll('.c2')
-			.forEach(e => e.style = 'top:'+l.c2Top+';left:'+l.c2Left)
-
 		holder.querySelector('.header').style = 'left:'+l.headerLeft;
+
+		const comonC1CSS = 'top:'+l.c1Top+';left:'+l.c1Left+';font-size:'+l.c1FontSize
+		holder.querySelectorAll('.c1')
+			.forEach(e => e.style = comonC1CSS)
+			
+		const comonC2CSS = 'top:'+l.c2Top+';left:'+l.c2Left
+		holder.querySelectorAll('.c2')
+			.forEach(e => e.style = comonC2CSS)
+
 
 		const totalHeight = 20+(curStyle==='cards' ?
 				Math.ceil(data.length/cardsPerRow)*94
