@@ -40,7 +40,34 @@
 	<script lang="javascript">
 		let itc
 		const render = () => {
-			itc = new IsomorphicTableCards();
+			itc = new IsomorphicTableCards({
+				// row and card dimesions
+				rowHeight: 31,
+				cardHeight: 94,
+				cardWidth: 210,
+				// item template
+				itemTemplate: d => `<div class="item chakra${d.chakra}" id="${d.name}">
+						<div class="c1">
+							${d.name}
+						</div>
+						<div class="c2">
+							${d.spirit}
+						</div>
+					</div>
+				`,
+				// sort functions
+				sort: (data, key, direction) => {
+					if(key=='chakra'){
+						return data.sort(direction>0 ? 
+							(a, b) => (a.chakra+a.name).localeCompare(b.chakra+b.name)
+							: 
+							(a, b) => ((8-a.chakra)+a.name).localeCompare((8-b.chakra)+b.name)
+						)
+					}else{
+						return data.sort((a, b) => direction*a.name.localeCompare(b.name))
+					}
+				}
+			});
 			itc.render()
 		}
 	</script>
