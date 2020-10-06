@@ -32,13 +32,49 @@
 	transition: .6s;
 }
 .item > div{
-	transition: .6s;
 	position: absolute;
 	line-height: 18px;
+	transition: .6s;
 }
-.item > div:first-child{
-	font-weight: bold;
-}
+.item > div:first-child,
 .c1{
 	font-weight: bold;
+}
+
+
+
+.table .item{
+	height: 30px;
+    width: 594px;
+    border-radius: 0px;
+} 
+.table .c1{
+	top: 5px;
+	left: 10px;
+    height: 30px;
+    width: 590px;
+    border-radius: 0px;
+}
+.table .c2{
+	top: 5px;
+	left: 200px;
+    height: 30px;
+    width: 594px;
+    border-radius: 0px;
+}
+
+.cards .item{
+	height: 84px;
+	width: 200px; 
+	border-radius: 4px;
+}
+
+.cards .c1{
+	top: 10px;
+	left: 10px;
+	font-size: 18px;
+}
+.cards .c2{
+	top: 38px;
+	left: 10px;
 }

@@ -12,7 +12,7 @@
     <meta name="description" content="Isomorphic-Table-Cards: Isomorphic Table/Cards views with animated transitions.">
     <meta name="keywords" content="table card cards view css javascript animation transition transformation isomorphism morphing">
 </head>
-<body onresize="redraw()" onload="render()">
+<body onresize="itc.redraw()" onload="render()">
 	<h1>
 		Isomorphic-Table-Cards
 		<div class="github">
@@ -22,20 +22,28 @@
 
 	<div id="opts">
 		<div>View:
-			<a href="javascript:redraw('table')">Table</a> /
-			<a href="javascript:redraw('cards')">Cards</a>
+			<a href="javascript:itc.redraw('table')">Table</a> /
+			<a href="javascript:itc.redraw('cards')">Cards</a>
 		</div>
 		<div>Order:
-			<a href="javascript:sort('name')">Name</a> /
-			<a href="javascript:sort('chakra')">Chakra</a>
+			<a href="javascript:itc.sort('name')">Name</a> /
+			<a href="javascript:itc.sort('chakra')">Chakra</a>
 		</div>
 	</div>
 	<div class="holder">
 		<div class="header sortable">
-			<div onclick="sort('name')">Gemstone</div>
-			<div onclick="sort('chakra')">Spiritual properties</div>
+			<div onclick="itc.sort('name')">Gemstone</div>
+			<div onclick="itc.sort('chakra')">Spiritual properties</div>
 		</div>
 	</div>
+
+	<script lang="javascript">
+		let itc
+		const render = () => {
+			itc = new IsomorphicTableCards();
+			itc.render()
+		}
+	</script>
 
 	<footer>
 		<p>Code available at <a href="https://github.com/evoluteur/isomorphic-table-cards">GitHub</a> under the MIT license. This code has no dependencies. It's just Vanilla Javascript, CSS, and HTML.</p>
