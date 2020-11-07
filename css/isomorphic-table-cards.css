@@ -14,7 +14,7 @@
 	top: 0px; 
     width: 574px;
     height: 19px;
-	transition: left 0.6s;
+	transition: left .5s ease-out;
 }
 .header > div{
 	float: left;
@@ -29,12 +29,12 @@
 	border: solid 1px silver;
 	background-color: white;
 	overflow: hidden;
-	transition: .6s;
+	transition: .5s ease-out;
 }
 .item > div{
 	position: absolute;
 	line-height: 18px;
-	transition: .6s;
+	transition: .5s ease-out;
 }
 .item > div:first-child,
 .c1{

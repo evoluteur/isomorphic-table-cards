@@ -1,19 +1,21 @@
-
+html{
+	color: #0f0f0f;
+    background-color: white;
+}
 body{
 	font-family: 'Roboto',arial;
 	margin: 0;
-	padding: 20px 20px 20px 30px;
-	color: #0f0f0f;
-	background-color: white;
-  	background-image: url("bg.gif");
+	padding: 20px 20px 20px 50px;
+    background-image: url(bg0.png);
+    background-repeat: repeat-y;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
+    font-weight: 600;
     color: #259DCB;
 }
 a:hover {
-	text-decoration: underline;
 	color: navy;
 }
 h1{
@@ -29,7 +31,6 @@ h1{
 	position: absolute;
 	top: 10px;
 	right: 20px;
-	background-color: white;
 	color: grey;
 }
 #opts > div{
