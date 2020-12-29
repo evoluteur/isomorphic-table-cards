@@ -1,13 +1,13 @@
 html{
 	color: #0f0f0f;
     background-color: white;
+    background-image: url(bg0.png);
+    background-repeat: repeat-y;
 }
 body{
 	font-family: 'Roboto',arial;
 	margin: 0;
 	padding: 20px 20px 20px 50px;
-    background-image: url(bg0.png);
-    background-repeat: repeat-y;
 }
 
 a {
