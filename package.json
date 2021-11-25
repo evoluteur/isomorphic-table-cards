@@ -12,15 +12,15 @@
   "homepage": "https://evoluteur.github.io/isomorphic-table-cards/",
   "bugs": "https://github.com/evoluteur/isomorphic-table-cards/issues",
   "keywords": [
-    "transition", 
-    "animation", 
+    "transition",
+    "animation",
     "transformation",
-    "list", 
-    "table", 
+    "list",
+    "table",
     "view",
     "layout",
     "cards",
-    "javascript", 
+    "javascript",
     "css",
     "html"
   ]

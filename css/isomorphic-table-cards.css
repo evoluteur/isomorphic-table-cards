@@ -1,80 +1,78 @@
 /* https://github.com/evoluteur/isomorphic-table-cards */
 
-.holder{
-	position: relative;
-	margin-bottom: 30px;
+.holder {
+  position: relative;
+  margin-bottom: 30px;
 }
 
-.header{
-	position: absolute;
-	padding: 10px;
-	background-color: #eee;
-	border: solid 2px silver;
-	left: -700px; 
-	top: 0px; 
-    width: 574px;
-    height: 19px;
-	transition: left .5s ease-out;
+.header {
+  position: absolute;
+  padding: 10px;
+  background-color: #eee;
+  border: solid 2px silver;
+  left: -700px;
+  top: 0px;
+  width: 574px;
+  height: 19px;
+  transition: left 0.5s ease-out;
 }
-.header > div{
-	float: left;
-	width: 190px;
-	line-height: 18px;
+.header > div {
+  float: left;
+  width: 190px;
+  line-height: 18px;
 }
-.header.sortable > div{
-	cursor: pointer;
+.header.sortable > div {
+  cursor: pointer;
 }
 .item {
-	position: absolute;
-	border: solid 1px silver;
-	background-color: white;
-	overflow: hidden;
-	transition: .5s ease-out;
+  position: absolute;
+  border: solid 1px silver;
+  background-color: white;
+  overflow: hidden;
+  transition: 0.5s ease-out;
 }
-.item > div{
-	position: absolute;
-	line-height: 18px;
-	transition: .5s ease-out;
+.item > div {
+  position: absolute;
+  line-height: 18px;
+  transition: 0.5s ease-out;
 }
 .item > div:first-child,
-.c1{
-	font-weight: bold;
+.c1 {
+  font-weight: bold;
 }
 
-
-
-.table .item{
-	height: 30px;
-    width: 594px;
-    border-radius: 0px;
-} 
-.table .c1{
-	top: 5px;
-	left: 10px;
-    height: 30px;
-    width: 590px;
-    border-radius: 0px;
+.table .item {
+  height: 30px;
+  width: 594px;
+  border-radius: 0px;
 }
-.table .c2{
-	top: 5px;
-	left: 200px;
-    height: 30px;
-    width: 594px;
-    border-radius: 0px;
+.table .c1 {
+  top: 5px;
+  left: 10px;
+  height: 30px;
+  width: 590px;
+  border-radius: 0px;
+}
+.table .c2 {
+  top: 5px;
+  left: 200px;
+  height: 30px;
+  width: 594px;
+  border-radius: 0px;
 }
 
-.cards .item{
-	height: 84px;
-	width: 200px; 
-	border-radius: 4px;
+.cards .item {
+  height: 84px;
+  width: 200px;
+  border-radius: 4px;
 }
 
-.cards .c1{
-	top: 10px;
-	left: 10px;
-	font-size: 18px;
+.cards .c1 {
+  top: 10px;
+  left: 10px;
+  font-size: 18px;
 }
-.cards .c2{
-	top: 38px;
-	left: 10px;
+.cards .c2 {
+  top: 38px;
+  left: 10px;
 }

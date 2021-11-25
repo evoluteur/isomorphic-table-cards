@@ -1,85 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-	<title>Isomorphic-Table-Cards</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <title>Isomorphic-Table-Cards</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/png" href="favicon.png" />
-	<link href="css/isomorphic-table-cards.css" rel="stylesheet">
-	<link href="css/demo.css" rel="stylesheet">
-	<script src="js/data-gemstones.js" charset="utf-8"></script>
-	<script src="js/isomorphic-table-cards.js" charset="utf-8"></script>
-    <meta name="description" content="Isomorphic-Table-Cards: Isomorphic Table/Cards views with animated transitions.">
-    <meta name="keywords" content="table card cards view css javascript animation transition transformation isomorphism morphing">
-</head>
-<body onresize="itc.redraw()" onload="render()">
-	<h1>
-		Isomorphic-Table-Cards
-		<div class="github">
-			<iframe src="https://ghbtns.com/github-btn.html?user=evoluteur&repo=isomorphic-table-cards&type=star&count=true&size=small" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
-		</div>
-	</h1>
+    <link href="css/isomorphic-table-cards.css" rel="stylesheet" />
+    <link href="css/demo.css" rel="stylesheet" />
+    <script src="js/data-gemstones.js" charset="utf-8"></script>
+    <script src="js/isomorphic-table-cards.js" charset="utf-8"></script>
+    <meta
+      name="description"
+      content="Isomorphic-Table-Cards: Isomorphic Table/Cards views with animated transitions."
+    />
+    <meta
+      name="keywords"
+      content="table card cards view css javascript animation transition transformation isomorphism morphing"
+    />
+  </head>
+  <body onresize="itc.redraw()" onload="render()">
+    <h1>
+      Isomorphic-Table-Cards
+      <div class="github">
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=evoluteur&repo=isomorphic-table-cards&type=star&count=true&size=small"
+          frameborder="0"
+          scrolling="0"
+          width="100px"
+          height="30px"
+        ></iframe>
+      </div>
+    </h1>
 
-	<div id="opts">
-		<div>View:
-			<a href="javascript:itc.redraw('table')">Table</a> /
-			<a href="javascript:itc.redraw('cards')">Cards</a>
-		</div>
-		<div>Order:
-			<a href="javascript:itc.sort('name')">Name</a> /
-			<a href="javascript:itc.sort('chakra')">Chakra</a>
-		</div>
-	</div>
-	<div class="holder">
-		<div class="header sortable">
-			<div onclick="itc.sort('name')">Gemstone</div>
-			<div onclick="itc.sort('chakra')">Spiritual properties</div>
-		</div>
-	</div>
+    <div id="opts">
+      <div>
+        View: <a href="javascript:itc.redraw('table')">Table</a> /
+        <a href="javascript:itc.redraw('cards')">Cards</a>
+      </div>
+      <div>
+        Order: <a href="javascript:itc.sort('name')">Name</a> /
+        <a href="javascript:itc.sort('chakra')">Chakra</a>
+      </div>
+    </div>
+    <div class="holder">
+      <div class="header sortable">
+        <div onclick="itc.sort('name')">Gemstone</div>
+        <div onclick="itc.sort('chakra')">Spiritual properties</div>
+      </div>
+    </div>
 
-	<script lang="javascript">
-		let itc
-		const render = () => {
-			itc = new IsomorphicTableCards({
-				// row and card dimesions
-				rowHeight: 31,
-				cardHeight: 94,
-				cardWidth: 210,
-				// item template
-				itemTemplate: d => `<div class="item chakra${d.chakra}" id="${d.name}">
-						<div class="c1">
-							${d.name}
-						</div>
-						<div class="c2">
-							${d.spirit}
-						</div>
-					</div>
-				`,
-				// sort functions
-				sort: (data, key, direction) => {
-					if(key=='chakra'){
-						return data.sort(direction>0 ? 
-							(a, b) => (a.chakra+a.name).localeCompare(b.chakra+b.name)
-							: 
-							(a, b) => ((8-a.chakra)+a.name).localeCompare((8-b.chakra)+b.name)
-						)
-					}else{
-						return data.sort((a, b) => direction*a.name.localeCompare(b.name))
-					}
-				}
-			});
-			itc.render()
-		}
+    <script lang="javascript">
+      let itc
+      const render = () => {
+      	itc = new IsomorphicTableCards({
+      		// row and card dimesions
+      		rowHeight: 31,
+      		cardHeight: 94,
+      		cardWidth: 210,
+      		// item template
+      		itemTemplate: d => `<div class="item chakra${d.chakra}" id="${d.name}">
+      				<div class="c1">
+      					${d.name}
+      				</div>
+      				<div class="c2">
+      					${d.spirit}
+      				</div>
+      			</div>
+      		`,
+      		// sort functions
+      		sort: (data, key, direction) => {
+      			if(key=='chakra'){
+      				return data.sort(direction>0 ?
+      					(a, b) => (a.chakra+a.name).localeCompare(b.chakra+b.name)
+      					:
+      					(a, b) => ((8-a.chakra)+a.name).localeCompare((8-b.chakra)+b.name)
+      				)
+      			}else{
+      				return data.sort((a, b) => direction*a.name.localeCompare(b.name))
+      			}
+      		}
+      	});
+      	itc.render()
+      }
     </script>
-    
-	<footer>
-		<p>Code available at <a href="https://github.com/evoluteur/isomorphic-table-cards">GitHub</a> under the MIT license. This code has no dependencies. It's just Vanilla Javascript, CSS, and HTML.</p>
-        
-        <p>Note: Of course these animated transitions can also be <a href="https://evoluteur.github.io/d3-table-cards/">done using D3</a>.</p>
-    
-        <p>Gemstones properties: <a href="https://smile.amazon.com/dp/1844090671" target="crystals">Healing Crystals</a> by Michael Gienger.</p>
-        <p>&#169; 2020 <a href="https://evoluteur.github.io/">Olivier Giulieri</a>.</p>
-	</footer>
 
-</body>
+    <footer>
+      <p>
+        Code available at
+        <a href="https://github.com/evoluteur/isomorphic-table-cards">GitHub</a>
+        under the MIT license. This code has no dependencies. It's just Vanilla
+        Javascript, CSS, and HTML.
+      </p>
+
+      <p>
+        Note: Of course these animated transitions can also be
+        <a href="https://evoluteur.github.io/d3-table-cards/">done using D3</a>.
+      </p>
+
+      <p>
+        Gemstones properties:
+        <a href="https://smile.amazon.com/dp/1844090671" target="crystals"
+          >Healing Crystals</a
+        >
+        by Michael Gienger.
+      </p>
+      <p>
+        &#169; 2020 <a href="https://evoluteur.github.io/">Olivier Giulieri</a>.
+      </p>
+    </footer>
+  </body>
 </html>
