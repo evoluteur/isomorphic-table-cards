@@ -1,6 +1,8 @@
-// isomorphic-table-cards
-// https://github.com/evoluteur/isomorphic-table-cards
-// (c) 2020 Olivier Giulieri
+/*
+  isomorphic-table-cards
+  https://github.com/evoluteur/isomorphic-table-cards
+  (c) 2021 Olivier Giulieri
+*/
 
 let cardsPerRow = 3;
 class IsomorphicTableCards {
@@ -55,12 +57,14 @@ class IsomorphicTableCards {
 
     this.holder.querySelectorAll(".item").forEach((e) => {
       const idx = id2idx[e.id];
-      e.style = "left:" + fnLeft(idx) + ";top:" + fnTop(idx);
+      e.style = "transform:translate(" + fnLeft(idx) + "," + fnTop(idx) + ")";
     });
 
     if (!keepStyle) {
       this.holder.querySelector(".header").style =
-        "left:" + (this.curStyle === "cards" ? "-650px" : 0);
+        "transform:translateX(" +
+        (this.curStyle === "cards" ? "-700px" : "0") +
+        ")";
       const totalHeight =
         20 +
         (this.curStyle === "cards"

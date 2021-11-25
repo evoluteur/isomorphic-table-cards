@@ -1,3 +1,9 @@
+/*
+  isomorphic-table-cards
+  https://github.com/evoluteur/isomorphic-table-cards
+  (c) 2021 Olivier Giulieri
+*/
+
 html {
   color: #0f0f0f;
   background-color: white;
@@ -12,11 +18,11 @@ body {
 
 a {
   text-decoration: none;
-  font-weight: 600;
   color: #259dcb;
 }
 a:hover {
-  color: navy;
+  text-decoration: underline;
+  color: #196988;
 }
 h1 {
   margin: 0 0 30px 0;
@@ -39,29 +45,29 @@ h1 {
 
 .chakra1 {
   background-color: #ffebee;
-  border: solid 2px #f44336;
+  border-color: #f44336;
 }
 .chakra2 {
   background-color: #fff3e0;
-  border: solid 2px #ff9800;
+  border-color: #ff9800;
 }
 .chakra3 {
   background-color: #fff8e1;
-  border: solid 2px #ffc107;
+  border-color: #ffc107;
 }
 .chakra4 {
   background-color: #e8f5e9;
-  border: solid 2px #4caf50;
+  border-color: #4caf50;
 }
 .chakra5 {
   background-color: #e0f7fa;
-  border: solid 2px #00bcd4;
+  border-color: #00bcd4;
 }
 .chakra6 {
   background-color: #e8eaf6;
-  border: solid 2px #3f51b5;
+  border-color: #3f51b5;
 }
 .chakra7 {
   background-color: #f3e5f5;
-  border: solid 2px #9c27b0;
+  border-color: #9c27b0;
 }

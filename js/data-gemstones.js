@@ -1,6 +1,8 @@
-// (c) 2020 Michael Gienger (from the book "Healing Crystals")
-// I'm allowed to use the following data by the author.
-// This data is not public domain!
+/*
+  (c) 2021 Michael Gienger (from the book "Healing Crystals")
+  I'm allowed to use the following data by the author.
+  This data is not public domain!
+*/
 
 var data = [
   {

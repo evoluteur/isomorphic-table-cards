@@ -2,12 +2,12 @@
 
 Isomorphic Table and Cards views with animated transitions.
 
-Check out [the demo](https://evoluteur.github.io/isomorphic-table-cards/index.html).
+Check out the [live demo](https://evoluteur.github.io/isomorphic-table-cards/index.html).
 
 [![screenshot](https://raw.github.com/evoluteur/isomorphic-table-cards/master/screenshot.gif)](https://evoluteur.github.io/isomorphic-table-cards/index.html)
 
-This [code](https://github.com/evoluteur/isomorphic-table-cards) has no dependencies. It's just Vanilla Javascript, CSS, and HTML under [MIT license](https://github.com/evoluteur/isomorphic-table-cards/blob/master/LICENSE).
+The [code](https://github.com/evoluteur/isomorphic-table-cards) is just Vanilla Javascript, CSS, and HTML.
 
-Note: Of course these animated transitions can also be [done using D3](https://evoluteur.github.io/d3-table-cards/).
+It could also be done [using D3.js](https://evoluteur.github.io/d3-table-cards/).
 
-(c) 2020 [Olivier Giulieri](https://evoluteur.github.io/).
+(c) 2021 [Olivier Giulieri](https://evoluteur.github.io/).
