@@ -1,7 +1,7 @@
 /*
   isomorphic-table-cards
   https://github.com/evoluteur/isomorphic-table-cards
-  (c) 2021 Olivier Giulieri
+  (c) 2024 Olivier Giulieri
 */
 
 let cardsPerRow = 3;
@@ -22,7 +22,8 @@ class IsomorphicTableCards {
     this.node.className = this.curStyle;
     this.node.innerHTML = data.map(this.config.itemTemplate).join("");
     this.holder.appendChild(this.node);
-    this.layout(false);
+    this.layout(false, true);
+    setTimeout(() => this.layout(true, false), 0);
   }
 
   redraw(style) {
@@ -30,7 +31,7 @@ class IsomorphicTableCards {
       this.node.className = style;
     }
     this.curStyle = style || this.curStyle;
-    this.layout();
+    this.layout(false);
   }
 
   sort(key) {
@@ -41,26 +42,25 @@ class IsomorphicTableCards {
     this.layout(true);
   }
 
-  layout(keepStyle) {
+  layout(keepHeader, firstTime) {
+    const { rowHeight, cardHeight, cardWidth } = this.config;
     const isCards = this.curStyle === "cards";
-    const cardsPerRow = Math.floor(
-      (window.innerWidth - 40) / this.config.cardWidth
-    );
+    const cardsPerRow = Math.floor((window.innerWidth - 40) / cardWidth);
     const fnTop = isCards
-      ? (idx) => Math.floor(idx / cardsPerRow) * this.config.cardHeight + "px"
+      ? (idx) => Math.floor(idx / cardsPerRow) * cardHeight + "px"
       : (idx) => 40 + idx * this.config.rowHeight + "px";
     const fnLeft = isCards
-      ? (idx) => (idx % cardsPerRow) * this.config.cardWidth + "px"
-      : (idx) => 0;
+      ? (idx) => (idx % cardsPerRow) * cardWidth + "px"
+      : () => 0;
     const id2idx = {};
     data.forEach((d, idx) => (id2idx[d.name] = idx));
-
-    this.holder.querySelectorAll(".item").forEach((e) => {
-      const idx = id2idx[e.id];
-      e.style = "transform:translate(" + fnLeft(idx) + "," + fnTop(idx) + ")";
-    });
-
-    if (!keepStyle) {
+    if (!firstTime) {
+      this.holder.querySelectorAll(".item").forEach((e) => {
+        const idx = id2idx[e.id];
+        e.style = "transform:translate(" + fnLeft(idx) + "," + fnTop(idx) + ")";
+      });
+    }
+    if (!keepHeader) {
       this.holder.querySelector(".header").style =
         "transform:translateX(" +
         (this.curStyle === "cards" ? "-700px" : "0") +
@@ -68,8 +68,8 @@ class IsomorphicTableCards {
       const totalHeight =
         20 +
         (this.curStyle === "cards"
-          ? Math.ceil(data.length / cardsPerRow) * this.config.cardHeight
-          : 40 + data.length * this.config.rowHeight);
+          ? Math.ceil(data.length / cardsPerRow) * cardHeight
+          : 40 + data.length * rowHeight);
       this.holder.style.height = totalHeight + "px";
     }
   }
