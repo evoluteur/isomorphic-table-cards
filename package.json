@@ -1,9 +1,9 @@
 {
   "name": "isomorphic-table-cards",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Isomorphic Table/Cards views with animated transitions.",
   "author": "Olivier Giulieri (https://evoluteur.github.io/)",
-  "copyright": "(c) 2020 Olivier Giulieri",
+  "copyright": "(c) 2024 Olivier Giulieri",
   "repository": {
     "type": "git",
     "url": "https://github.com/evoluteur/isomorphic-table-cards.git"
@@ -20,6 +20,8 @@
     "view",
     "layout",
     "cards",
+    "cardview",
+    "tableview",
     "javascript",
     "css",
     "html"
