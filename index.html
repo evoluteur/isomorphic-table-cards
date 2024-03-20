@@ -27,7 +27,7 @@
     <script src="js/isomorphic-table-cards.js" charset="utf-8"></script>
     <meta
       name="description"
-      content="Isomorphic-Table-Cards: Isomorphic Table/Cards views with animated transitions."
+      content="Isomorphic Table and Cards views with animated transitions on sorting, changing view, and browser resizing (using Vanilla Javascript, CSS, and HTML)."
     />
     <meta
       name="keywords"
@@ -53,13 +53,18 @@
       </div>
     </h1>
 
+    <p>
+      This demo shows animations during transition between cards and table views
+      or sorting. Click on the links in the top-right corner to see it in
+      action.
+    </p>
     <div id="opts">
       <div>
         View: <a href="javascript:itc.redraw('table')">Table</a> /
         <a href="javascript:itc.redraw('cards')">Cards</a>
       </div>
       <div>
-        Order: <a href="javascript:itc.sort('name')">Name</a> /
+        Order by: <a href="javascript:itc.sort('name')">Name</a> /
         <a href="javascript:itc.sort('chakra')">Chakra</a>
       </div>
     </div>
@@ -74,7 +79,7 @@
       let itc
       const render = () => {
       	itc = new IsomorphicTableCards({
-      		// row and card dimesions
+      		// row and card dimensions
       		rowHeight: 31,
       		cardHeight: 94,
       		cardWidth: 210,

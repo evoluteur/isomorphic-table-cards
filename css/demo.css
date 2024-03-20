@@ -1,7 +1,7 @@
 /*
   isomorphic-table-cards
   https://github.com/evoluteur/isomorphic-table-cards
-  (c) 2021 Olivier Giulieri
+  (c) 2024 Olivier Giulieri
 */
 
 html {
@@ -19,11 +19,12 @@ body {
 a {
   text-decoration: none;
   color: #259dcb;
+  &:hover {
+    text-decoration: underline;
+    color: #196988;
+  }
 }
-a:hover {
-  text-decoration: underline;
-  color: #196988;
-}
+
 h1 {
   margin: 0 0 30px 0;
 }
@@ -38,9 +39,9 @@ h1 {
   top: 10px;
   right: 20px;
   color: grey;
-}
-#opts > div {
-  padding: 5px;
+  > div {
+    padding: 5px;
+  }
 }
 
 .chakra1 {

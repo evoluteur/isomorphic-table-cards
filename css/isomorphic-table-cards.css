@@ -1,12 +1,12 @@
 /*
   isomorphic-table-cards
   https://github.com/evoluteur/isomorphic-table-cards
-  (c) 2021 Olivier Giulieri
+  (c) 2024 Olivier Giulieri
 */
 
 .holder {
   position: relative;
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
 
 .header {
@@ -18,11 +18,11 @@
   height: 19px;
   transform: translateX(-700px);
   transition: transform 0.4s;
-}
-.header > div {
-  float: left;
-  width: 190px;
-  line-height: 18px;
+  > div {
+    float: left;
+    width: 190px;
+    line-height: 18px;
+  }
 }
 .header.sortable > div {
   cursor: pointer;
@@ -33,51 +33,53 @@
   background-color: white;
   overflow: hidden;
   transition: 0.4s;
+  .c1,
+  .c2 {
+    width: 190px;
+    transition: 0.4s;
+  }
+  > div {
+    position: absolute;
+    line-height: 18px;
+    transition: 0.4s;
+  }
+  > div:first-child,
+  .c1 {
+    font-weight: bold;
+  }
 }
-.c1,
-.c2 {
-  width: 190px;
-  transition: 0.4s;
-}
-.item > div {
-  position: absolute;
-  line-height: 18px;
-  transition: 0.4s;
-}
-.item > div:first-child,
-.c1 {
-  font-weight: bold;
-}
-
-.table .item {
-  height: 30px;
-  width: 594px;
-  border-radius: 0px;
-  border-width: 1px;
-}
-.table .c1 {
-  transform: translate(10px, 5px);
-  height: 30px;
-  width: 590px;
-  border-radius: 0px;
-}
-.table .c2 {
-  transform: translate(200px, 5px);
-  height: 30px;
-  width: 594px;
-  border-radius: 0px;
-}
-
-.cards .item {
-  height: 84px;
-  width: 200px;
-  border-radius: 8px;
+.table {
+  .item {
+    height: 30px;
+    width: 594px;
+    border-radius: 0px;
+    border-width: 1px;
+  }
+  .c1 {
+    transform: translate(10px, 5px);
+    height: 30px;
+    width: 590px;
+    border-radius: 0px;
+  }
+  .c2 {
+    transform: translate(200px, 5px);
+    height: 30px;
+    width: 594px;
+    border-radius: 0px;
+  }
 }
 
-.cards .c1 {
-  transform: translate(10px, 10px);
-  font-size: 18px;
-}
-.cards .c2 {
-  transform: translate(10px, 38px);
+.cards {
+  .item {
+    height: 84px;
+    width: 200px;
+    border-radius: 8px;
+  }
+  .c1 {
+    transform: translate(10px, 10px);
+    font-size: 18px;
+  }
+  .c2 {
+    transform: translate(10px, 38px);
+  }
 }
