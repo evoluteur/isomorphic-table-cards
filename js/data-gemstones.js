@@ -4,7 +4,7 @@
   This data is not public domain!
 */
 
-let data = [
+const data = [
   {
     name: "Amazonite",
     chakra: 4,

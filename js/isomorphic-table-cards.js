@@ -6,7 +6,6 @@
 
 let cardsPerRow = 3;
 class IsomorphicTableCards {
-  selector = ".holder";
   holder = null;
   curSortField = "chakra";
   curSortDirection = 1;
@@ -17,10 +16,12 @@ class IsomorphicTableCards {
   }
 
   render() {
-    this.holder = document.querySelector(this.selector);
+    this.holder = document.querySelector(this.config.selector);
     this.node = document.createElement("div");
     this.node.className = this.curStyle;
-    this.node.innerHTML = data.map(this.config.itemTemplate).join("");
+    this.node.innerHTML = this.config.data
+      .map(this.config.itemTemplate)
+      .join("");
     this.holder.appendChild(this.node);
     this.layout(false, true);
     setTimeout(() => this.layout(true, false), 0);
@@ -37,7 +38,7 @@ class IsomorphicTableCards {
   sort(key) {
     const csDirection = key === this.curSortField ? -this.curSortDirection : 1;
     this.curSortDirection = csDirection;
-    data = this.config.sort(data, key, csDirection);
+    this.config.data = this.config.sort(this.config.data, key, csDirection);
     this.curSortField = key;
     this.layout(true);
   }
@@ -53,7 +54,7 @@ class IsomorphicTableCards {
       ? (idx) => (idx % cardsPerRow) * cardWidth + "px"
       : () => 0;
     const id2idx = {};
-    data.forEach((d, idx) => (id2idx[d.name] = idx));
+    this.config.data.forEach((d, idx) => (id2idx[d.name] = idx));
     if (!firstTime) {
       this.holder.querySelectorAll(".item").forEach((e) => {
         const idx = id2idx[e.id];
@@ -68,8 +69,8 @@ class IsomorphicTableCards {
       const totalHeight =
         20 +
         (this.curStyle === "cards"
-          ? Math.ceil(data.length / cardsPerRow) * cardHeight
-          : 40 + data.length * rowHeight);
+          ? Math.ceil(this.config.data.length / cardsPerRow) * cardHeight
+          : 40 + this.config.data.length * rowHeight);
       this.holder.style.height = totalHeight + "px";
     }
   }
