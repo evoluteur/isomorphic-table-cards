@@ -77,4 +77,4 @@ The same animations can also be done [using D3.js](https://evoluteur.github.io/d
 
 Isomorphic-Table-Cards is open source at [GitHub](https://github.com/evoluteur/isomorphic-table-cards) with MIT license.
 
-(c) 2024 [Olivier Giulieri](https://evoluteur.github.io/).
+(c) 2025 [Olivier Giulieri](https://evoluteur.github.io/).

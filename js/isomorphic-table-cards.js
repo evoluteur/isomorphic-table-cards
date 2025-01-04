@@ -1,7 +1,7 @@
 /*
   isomorphic-table-cards
   https://github.com/evoluteur/isomorphic-table-cards
-  (c) 2024 Olivier Giulieri
+  (c) 2025 Olivier Giulieri
 */
 
 let cardsPerRow = 3;
