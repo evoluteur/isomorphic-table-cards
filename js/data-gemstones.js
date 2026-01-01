@@ -1,5 +1,5 @@
 /*
-  (c) 2025 Michael Gienger (from the book "Healing Crystals")
+  (c) 2026 Michael Gienger (from the book "Healing Crystals")
   I'm allowed to use the following data by the author.
   This data is not public domain!
 */

@@ -46,6 +46,7 @@ Isomorphic-Table-Cards is a Javascript class with configuration options for re-u
 **sort(key)**: Sort method (key=data attribute to sort by).
 
 ### Example
+
 ```javascript
 const tableCards = new IsomorphicTableCards({
   data: <yourData>,
@@ -77,4 +78,4 @@ The same animations can also be done [using D3.js](https://evoluteur.github.io/d
 
 Isomorphic-Table-Cards is open source at [GitHub](https://github.com/evoluteur/isomorphic-table-cards) with MIT license.
 
-(c) 2025 [Olivier Giulieri](https://evoluteur.github.io/).
+(c) 2026 [Olivier Giulieri](https://evoluteur.github.io/).
