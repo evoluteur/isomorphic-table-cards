@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <script
@@ -14,44 +14,90 @@
       gtag("config", "G-063933E3C2");
     </script>
     <meta charset="utf-8" />
-    <title>Isomorphic-Table-Cards</title>
+    <title>
+      Isomorphic Table &amp; Cards — Animated Table/Card View Toggle in Vanilla
+      JS
+    </title>
     <link
       rel="canonical"
       href="https://evoluteur.github.io/isomorphic-table-cards/"
     />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="css/isomorphic-table-cards.css" rel="stylesheet" />
-    <link href="css/demo.css" rel="stylesheet" />
-    <script src="js/data-gemstones.js" charset="utf-8"></script>
-    <script src="js/isomorphic-table-cards.js" charset="utf-8"></script>
     <meta
       name="description"
-      content="Example of responsive table and card views using vanilla JavaScript, CSS, and HTML. Includes animated transitions for sorting, view changes, and browser resizing."
+      content="Animated transition between table and card views using only vanilla JavaScript, CSS, and HTML — no framework required. Supports sorting with smooth morphing animations."
     />
     <meta
       name="keywords"
-      content="table, list, card, cards, view, css, javascript, animation, transition, transformation, isomorphism, morphing"
+      content="table, card view, list view, vanilla javascript, css animation, morphing transition, responsive UI, isomorphic layout"
+    />
+    <meta name="author" content="Olivier Giulieri" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://evoluteur.github.io/isomorphic-table-cards/"
+    />
+    <meta
+      property="og:title"
+      content="Isomorphic Table &amp; Cards — Animated Table/Card View Toggle in Vanilla JS"
+    />
+    <meta
+      property="og:description"
+      content="Animated transition between table and card views using only vanilla JavaScript, CSS, and HTML — no framework required."
     />
     <meta
       property="og:image"
       content="https://evoluteur.github.io/isomorphic-table-cards/screenshot.gif"
     />
-    <meta name="author" content="Olivier  Giulieri" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Isomorphic Table &amp; Cards — Animated Table/Card View Toggle in Vanilla JS"
+    />
+    <meta
+      name="twitter:description"
+      content="Animated transition between table and card views using only vanilla JavaScript, CSS, and HTML — no framework required."
+    />
+    <meta
+      name="twitter:image"
+      content="https://evoluteur.github.io/isomorphic-table-cards/screenshot.gif"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Isomorphic Table & Cards",
+        "url": "https://evoluteur.github.io/isomorphic-table-cards/",
+        "description": "Animated transition between table and card views using only vanilla JavaScript, CSS, and HTML.",
+        "author": {
+          "@type": "Person",
+          "name": "Olivier Giulieri",
+          "url": "https://evoluteur.github.io/"
+        },
+        "license": "https://opensource.org/licenses/MIT",
+        "codeRepository": "https://github.com/evoluteur/isomorphic-table-cards",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any"
+      }
+    </script>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="css/isomorphic-table-cards.css" rel="stylesheet" />
+    <link href="css/demo.css" rel="stylesheet" />
+    <script src="js/data-gemstones.js" charset="utf-8"></script>
+    <script src="js/isomorphic-table-cards.js" charset="utf-8"></script>
   </head>
   <body onresize="itc.redraw()" onload="render()">
-    <h1>
-      Isomorphic-Table-Cards
-      <div class="github">
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user=evoluteur&repo=isomorphic-table-cards&type=star&count=true&size=small"
-          frameborder="0"
-          scrolling="0"
-          width="100px"
-          height="30px"
-        ></iframe>
-      </div>
-    </h1>
+    <h1>Isomorphic-Table-Cards</h1>
+    <div class="github">
+      <iframe
+        src="https://ghbtns.com/github-btn.html?user=evoluteur&repo=isomorphic-table-cards&type=star&count=true&size=small"
+        frameborder="0"
+        scrolling="0"
+        width="100px"
+        height="30px"
+        title="GitHub stars"
+      ></iframe>
+    </div>
 
     <p>
       This demo shows animations during transition between cards and table views
@@ -60,12 +106,14 @@
     </p>
     <div id="opts">
       <div>
-        View: <a href="javascript:itc.redraw('table')">Table</a> /
-        <a href="javascript:itc.redraw('cards')">Cards</a>
+        View:
+        <button type="button" onclick="itc.redraw('table')">Table</button> /
+        <button type="button" onclick="itc.redraw('cards')">Cards</button>
       </div>
       <div>
-        Order by: <a href="javascript:itc.sort('name')">Name</a> /
-        <a href="javascript:itc.sort('chakra')">Chakra</a>
+        Order by:
+        <button type="button" onclick="itc.sort('name')">Name</button> /
+        <button type="button" onclick="itc.sort('chakra')">Chakra</button>
       </div>
     </div>
     <div class="holder">
@@ -76,9 +124,9 @@
     </div>
 
     <script lang="javascript">
-      let itc
+      let itc;
       const render = () => {
-      	itc = new IsomorphicTableCards({
+        itc = new IsomorphicTableCards({
           data,
           selector: ".holder",
           // row and card dimensions
@@ -86,7 +134,9 @@
           cardHeight: 94,
           cardWidth: 210,
           // item template
-          itemTemplate: d => `<div class="item chakra${d.chakra}" id="${d.name}">
+          itemTemplate: (
+            d,
+          ) => `<div class="item chakra${d.chakra}" id="${d.name}">
               <div class="c1">
                 ${d.name}
               </div>
@@ -97,33 +147,50 @@
           `,
           // sort functions
           sort: (data, key, direction) => {
-            if(key=='chakra'){
-              return data.sort(direction>0 ?
-                (a, b) => (a.chakra+a.name).localeCompare(b.chakra+b.name)
-                :
-                (a, b) => ((8-a.chakra)+a.name).localeCompare((8-b.chakra)+b.name)
-              )
-            }else{
-              return data.sort((a, b) => direction*a.name.localeCompare(b.name))
+            if (key == "chakra") {
+              return data.sort(
+                direction > 0
+                  ? (a, b) =>
+                      (a.chakra + a.name).localeCompare(b.chakra + b.name)
+                  : (a, b) =>
+                      (8 - a.chakra + a.name).localeCompare(
+                        8 - b.chakra + b.name,
+                      ),
+              );
+            } else {
+              return data.sort(
+                (a, b) => direction * a.name.localeCompare(b.name),
+              );
             }
-          }
-      	});
-      	itc.render()
-      }
+          },
+        });
+        itc.render();
+      };
     </script>
 
     <footer>
       <p>
         The code available at
-        <a href="https://github.com/evoluteur/isomorphic-table-cards">GitHub</a>
+        <a
+          href="https://github.com/evoluteur/isomorphic-table-cards"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
         under the MIT license. This is just Vanilla Javascript, CSS, and HTML.
         It can also be done
-        <a href="https://evoluteur.github.io/d3-table-cards/">using D3.js</a>.
+        <a
+          href="https://evoluteur.github.io/d3-table-cards/"
+          rel="noopener noreferrer"
+          >using D3.js</a
+        >.
       </p>
 
       <p>
         Gemstones properties:
-        <a href="https://smile.amazon.com/dp/1844090671" target="crystals"
+        <a
+          href="https://smile.amazon.com/dp/1844090671"
+          target="_blank"
+          rel="noopener noreferrer"
           >Healing Crystals</a
         >
         by Michael Gienger.
