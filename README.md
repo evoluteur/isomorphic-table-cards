@@ -72,7 +72,7 @@ const tableCards = new IsomorphicTableCards({
 tableCards.render()
 ```
 
-The same animations can also be done [using D3.js](https://evoluteur.github.io/d3-table-cards/).
+The same animations can also be done using D3.js [d3-table-cards](https://evoluteur.github.io/d3-table-cards/) or React [react-morph-table-cards](https://evoluteur.github.io/react-morph-table-cards/).
 
 ## License
 
