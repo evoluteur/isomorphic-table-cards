@@ -4,7 +4,7 @@ Isomorphic-Table-Cards is a Javascript class for Table and Cards views with anim
 
 Check out the [live demo](https://evoluteur.github.io/isomorphic-table-cards/index.html).
 
-[![screenshot](https://raw.github.com/evoluteur/isomorphic-table-cards/master/screenshot.gif)](https://evoluteur.github.io/isomorphic-table-cards/index.html)
+[![screenshot](https://raw.github.com/evoluteur/isomorphic-table-cards/master/screenshot.png)](https://evoluteur.github.io/isomorphic-table-cards/index.html)
 
 ## Usage
 
